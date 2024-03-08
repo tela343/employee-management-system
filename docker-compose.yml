@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+ server:
+  build: .
+  ports:
+   - '4000:4000'
+ db:
+  image: 'postgres'
+  environment:
+   POSTGRES_PASSWORD: 'okayfine'
+   POSTGRES_USER: 'postgres'
+  volumes:
+   - data:/var/lib/postgrsql/data
+
+volumes:
+ data:
