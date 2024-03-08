@@ -8,6 +8,7 @@ EMS is an employee management system designed to assist organizations in keeping
 - Employee
 
 ## Database Setup
+![db-setup](https://github.com/tela343/employee-management-system/assets/65814209/a76d62d6-0c08-42ed-8b2b-fd639592fb98)
 
 ## Functionality
 
