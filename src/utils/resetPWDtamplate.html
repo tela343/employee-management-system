@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Reset Password</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>  
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <style>
+        body {
+            background: #f2f2f2;
+        }
+        section {
+            font-family: proxima-nova, sans-serif;
+            margin: auto;
+            width: 60%;
+        }
+        .small_text {
+            font-size: 16px;
+            margin-top: 30px;
+            color: #424242;
+        }
+        .body_par {
+            color: #333;
+        }
+        .login_body li {
+            list-style: none;
+        }
+        .login_body li {
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+        }
+        .footer_text {
+            font-size: 15px;
+            margin-top: 20px;
+            color: #333;
+        }
+        footer {
+            margin-top: 35px;
+            color: #222;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+        footer p {
+            line-height: 1.7;
+        }
+        .logo_img {
+            width: 100%;
+        }
+        .verify_button {
+            background-color: #84bb45;
+            color: #ffffff;
+            padding: 5px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-transform: capitalize;
+            text-align: center;
+        }
+        .inputs{
+            padding: 5px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            width: 95%;
+            height: 35px;
+            outline: none;
+            margin: 10px 0;
+        }
+        .inputsz{
+            width: 100%;
+            padding: 20px 0;
+        }
+        .senddata{
+                font-size: 19px;
+                color: #84bb45;
+                float: right;
+                
+            }
+        @media screen and (max-width: 812px) {
+            section {
+                width: 95%;
+            }
+            .small_text {
+                font-size: 14px;
+                margin-top: 40px;
+            }
+            .footer_text {
+                font-size: 13px;
+            }
+            .tuner_logo {
+                height: 280px;
+            }
+            .tuner_logo img {
+                margin-top: 70px;
+                width: 200px;
+            }
+            .logo_img {
+                width: 60%;
+                margin: auto;
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>Reset Password</h2>
+        <div class="small_text">
+            <p>
+                <strong>Hello, </strong>
+            </p>
+        </div>
+        <div class="body_par">
+            <p>
+                To reset password on your account, click the button below.
+            </p>
+        </div>
+        <div class="">
+            <span class="senddata"></span><br><br>  
+        </div>
+        <form method="post">
+            <div class="inputsz">
+                <input class="inputs" id="resetpwd" type="password" placeholder="New Password">
+                <input class="inputs" id="resetpwdconf" type="password" placeholder="comfirm Password">
+            </div>
+            <a href="" id="submit">
+                <div class="verify_button">
+                    <h2 style="font-size: 15px;">Reset Password</h2>
+                </div>
+            </a>
+        </form>
+        <p class="footer_text">
+            If you encounter any problem, please don't hesitate to CONTACT US at
+            <span style="color:#424242"><a href="johnsondusabe@gmail.com">here</a></span>
+        </p>
+        <footer>
+            <p>
+                <span>Kigali, Rwanda</span><br />
+                <span><b> (+250) 788 336 717</b></span><br />
+            </p>
+            &copy; Awesomity - All Rights Reserved.
+        </footer>
+    </section>
+</body>
+
+</html>
+
+<script type="text/javascript">  
+  
+    $( document ).ready(function() {  
+        $("#submit").on("click", function(){  
+            $(".senddata").html("");  
+            var url = window.location.href+'/newPassword';  
+            var password = $('#resetpwd').val();  
+            var confirmpassword = $('#resetpwdconf').val();  
+      
+            if( password == confirmpassword){  
+                $.post(url,{password : password},function(result){  
+                var msg = result.status;  
+                var msgdata = result.message; 
+                
+                if(msg){  
+                    $(".senddata").html(`${msgdata}`);   
+                }else{  
+                    console.log(msgdata)
+                    $(".senddata").html(`${msgdata}`);  
+                }  
+            }).fail(function(result) {
+                $(".senddata").html(JSON.parse(result.responseText).message);
+            }); 
+            }else{  
+                $(".senddata").html("Passwords did not match");  
+            }         
+            return false;  
+        });  
+          
+    });  
+      
+</script>
