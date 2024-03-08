@@ -1,2 +1,47 @@
-# employee-management-system
-This repository contains the source code for an Employee Management System (EMS) designed to streamline employee management processes within organizations. It includes functionalities such as user authentication, employee CRUD operations, department assignment, and more. Follow the provided installation guide to set up the system locally.
+# Employee Management System (EMS)
+
+## Introduction
+EMS is an employee management system designed to assist organizations in keeping track of their employees and departments.
+
+### Users
+- Manager
+- Employee
+
+## Database Setup
+
+## Functionality
+
+### Manager
+- Manager Signup
+- Manager Signin
+- Manager Search Employee
+- Manager Reset Password
+- Manager Verify Account
+- Add Employee
+- Update Employee
+- Delete Employee
+- Activate Employee
+- Suspend Employee
+- Assign Department
+
+## Installation Guide
+To install this project, follow these steps:
+
+### Requirements
+- Node.js (required)
+- Relational Database (required)
+- NPM (required)
+
+### Pre-setup
+1. Create a `.env` file.
+2. Copy and paste data from `.env-example` into your newly created `.env` file.
+3. Fill in all the information according to your setup.
+
+### Commands
+1. Install dependencies: `npm i`
+2. Run migration: `npm run migrate`
+3. Run application: `npm start`
+4. Run tests: `npm run test`
+
+## Documentation
+Please refer to the `docs` directory for documentation.
